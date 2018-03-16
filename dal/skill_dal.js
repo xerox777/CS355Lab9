@@ -19,8 +19,8 @@ exports.getAll = function(callback) {
  */
 exports.insert = function(params, callback) {
 
-    var query = 'INSERT INTO skill (skill_name) VALUES (?)';
-    var queryData = [params.skill_name];
+    var query = 'INSERT INTO skill (skill_name, description) VALUES (?, ?)';
+    var queryData = [params.skill_name, params.description];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
