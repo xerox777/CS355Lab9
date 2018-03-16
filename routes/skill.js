@@ -19,6 +19,21 @@ router.get('/all', function(req, res, next) {
     })
 });
 
+router.get('/add', function(req, res) {
+    res.render('skill/skill_add');
+});
+
+router.get('/insert', function(req, res) {
+    skill_dal.insert(req.query, function(err, result) {
+        if(err){
+            console.log(err);
+            res.send(err);
+        } else {
+            res.redirect(302, '/skill/all');
+        }
+    });
+});
+
 module.exports = router;
 
 /**
