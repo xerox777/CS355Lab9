@@ -19,5 +19,22 @@ router.get('/all', function(req, res, next) {
     })
 });
 
+router.get('/add', function(req, res) {
+    res.render('address/address_add');
+});
+
+router.get('/insert', function(req, res) {
+    address_dal.insert(req.query, function(err, result) {
+        if(err){
+            console.log(err);
+            res.send(err);
+        } else {
+            res.redirect(302, '/address/all');
+        }
+    });
+});
+
+
+
 module.exports = router;
 
