@@ -13,7 +13,7 @@ router.get('/all', function(req, res, next) {
             res.send(err);
         } else {
             console.log(result);
-            res.render('address/address_view_all', {address: result});
+            res.render('address/address_view_all', {address: result[0]});
         }
 
     })
