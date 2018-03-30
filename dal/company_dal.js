@@ -28,7 +28,7 @@ var companyAddressUpdate = function(company_id, addressIdArray, callback){
     var query = 'CALL company_address_delete(?)';
 
     connection.query(query, company_id, function (err, result) {
-        if(err || params.addressIdArray === undefined) {
+        if(err || addressIdArray === undefined) {
             callback(err, result);
         }
         else {
@@ -70,7 +70,7 @@ exports.insert = function(params, callback) {
     var queryData = [params.company_name];
 
     connection.query(query, queryData, function(err, result) {
-        if(err || params.address_id === undefined) {
+        if(err || address_id === undefined) {
             console.log(err);
             callback(err, result);
         }
