@@ -5,16 +5,32 @@
     </head>
     <body>
         <h1>Add New Company</h1>
-    <form action="/company/insert" method="get">
-        Company Name: <input name="company_name" type="text" />
+    <form action="/company/update" method="get">
+        Company Name: <input
+                id="company_name"
+                name="company_name"
+                type="text"
+                value="<%= company.company_name%>"
+        />
         <br />
         <br />
-        <% for(var i=0; address_result.length > i; i++ ) { %>
-            <input type="checkbox" name="address_id" value="<%= address_result[i].address_id %>"> <%= address_result[i].street + ',' +
+        <% for(var i=0; address_result.length > i; i++ ) {
+            var checked ="";
+
+            if(address_result[i].company_id != null) {
+                checked = "checked";
+            }
+        %>
+            <input type="checkbox" name="address_id" <%= checked %> value="<%= address_result[i].address_id %>"> <%= address_result[i].street + ',' +
          address_result[i].zip_code %>
         <br />
         <% } %>
         <input type="submit" />
+        <input type="hidden"
+               id="company_id"
+               name="company_id"
+               value="<%= company.company_id %>"
+               />
     </form>
     </body>
 </html>

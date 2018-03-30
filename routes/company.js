@@ -20,6 +20,23 @@ router.get('/all', function(req, res, next) {
     })
 });
 
+router.get('/update', function(req, res) {
+    company_dal.update(req.query, function(err, result){
+        if(err){
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/company/all');
+        }
+    });
+});
+
+router.get('/edit', function(req, res) {
+    company_dal.getinfo(req.query.company_id, function(err, result){
+        res.render('company/companyUpdate', {company: result[0][0],
+            address_result: result[1]});
+    });
+});
 
 router.get('/add', function(req, res) {
     address_dal.getAll(function(err, result) {
