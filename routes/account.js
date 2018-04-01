@@ -5,6 +5,31 @@ var express = require('express');
 var router = express.Router();
 var account_dal = require('../dal/account_dal');
 
+
+router.get('/update', function(req, res) {
+    account_dal.update(req.query, function(err, result){
+        if(err){
+            res.send(err);
+        } else {
+            res.redirect(302, '/company/all');
+        }
+    });
+});
+
+
+router.get('/edit', function(req, res) {
+    account_dal.getinfo(req.query.email, function(err, result){
+        if(err) {res.send(err); }
+        else {
+            res.render('account/AccountUpdate', {
+                account: result[0][0],
+                account_result: result[1]
+            });
+        }
+    });
+});
+
+
 /* GET users listing. */
 router.get('/all', function(req, res, next) {
     account_dal.getAll(function(err, result) {
@@ -13,7 +38,7 @@ router.get('/all', function(req, res, next) {
             res.send(err);
         } else {
             console.log(result);
-            res.render('account/account_view_all', {account: result});
+            res.render('account/account_view_all', {account: result[0]});
         }
 
     })

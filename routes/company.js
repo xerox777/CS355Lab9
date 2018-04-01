@@ -6,6 +6,7 @@ var router = express.Router();
 var company_dal = require('../dal/company_dal');
 var address_dal = require('../dal/address_dal');
 
+
 /* GET users listing. */
 router.get('/all', function(req, res, next) {
     company_dal.getAll(function(err, result) {
