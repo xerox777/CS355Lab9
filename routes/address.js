@@ -5,6 +5,19 @@ var express = require('express');
 var router = express.Router();
 var address_dal = require('../dal/address_dal');
 
+router.get('/edit', function(req, res){
+    address_dal.getinfo(req.query.address_id, function(err, result){
+        if(err){res.send(err);}
+        else {
+            res.render('address/AddressUpdate',
+                {address: result[0][0], address_res: result[1]});
+        }
+
+    });
+});
+
+
+
 /* GET users listing. */
 router.get('/all', function(req, res, next) {
     address_dal.getAll(function(err, result) {

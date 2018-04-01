@@ -7,7 +7,15 @@
 <h1>Add New Skill</h1>
 <form action="/skill/insert" method="get">
     Skill Name: <input name="skill_name" type="text" />
+    Skill Description: <input name="description" type="text" />
     <br />
+    <% for(var i=0; skill_res.length > i; i++) { %>
+        <input type="checkbox" name="skill_id" value="<%=
+        skill_res[i].skill_id %>"> <%= skill_res[i].skill_name %> + ','
+        <%= skill_res[i].description %>
+        <br />
+        <% } %>
+        <br />
     <input type="submit" />
 </form>
 </body>

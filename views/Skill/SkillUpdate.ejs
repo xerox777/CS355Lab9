@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skill - ADD</title>
+</head>
+<body>
+<h1>Add New Skill</h1>
+<form action="/skill/update" method="get">
+    Skill Name: <input id="skill_name"
+    name="skill_name"
+    type="text"
+    value="<%= skill.skill_name%>"
+    />
+    <br />
+            <% for(var i=0; skill_result.length > i; i++ ) {
+                var checked ="";
+
+                if(skill_result[i].skill_id != null) {
+                    checked = "checked";
+                }
+            %>
+    Skill Description: <input name="description" type="text" />
+    <br />
+    <% for(var i=0; skill_res.length > i; i++) { %>
+        <input type="checkbox" name="skill_id" value="<%=
+        skill_res[i].skill_id %>"> <%= skill_res[i].skill_name %> + ','
+        <%= skill_res[i].description %>
+        <br />
+        <% } %>
+        <br />
+    <input type="submit" />
+    <input type="hidden"
+        id="skill_id"
+        name="skill_id"
+        value="<%= skill.skill_id %>"
+</form>
+</body>
+</html>

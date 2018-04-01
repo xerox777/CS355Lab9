@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Address - ADD</title>
+</head>
+<body>
+<h1>Add New Address</h1>
+<form action="/address/insert" method="get">
+    Address Name: <input id="street"
+                    name="street"
+                    type="text"
+                    value="<%= address.street%>"
+    />
+    <br />
+    <br />
+        <% for(var i=0; address_res.length > i; i++ ) {
+            var checked ="";
+
+            if(address_res[i].company_id != null) {
+                checked = "checked";
+            }
+        %>
+            <input type="checkbox" name="address_id" <%= checked %> value="<%= address_result[i].address_id %>"> <%= address_result[i].street + ',' +
+         address_res[i].zip_code %>
+        <br />
+        <% } %>
+    <input type="submit" />
+    <input type="hidden"
+            id="address_id"
+            name="address_id"
+            value="<%= address.address_id %>"
+    />
+</form>
+</body>
+</html>

@@ -3,9 +3,25 @@
  */
 var mysql = require('mysql');
 var db = require('./db_connection.js');
-
-
 var connection = mysql.createConnection(db.config);
+
+exports.getinfo = function(address_id, callback) {
+    var query = 'CALL address_getinfo(?)';
+    var queryData = [address_id];
+    connection.query(query, queryData, function(err, result){
+        callback(err, result);
+    });
+};
+
+
+exports.update = function(params, callback) {
+    var query = 'UPDATE address SET street = ? WHERE address_id = ?';
+    var queryData = [params.skill_name, params.skill_id];
+    connection.query(query, queryData, function(err, result) {
+        callback(err, result);
+    });
+};
+
 
 
 exports.getAll = function(callback) {
