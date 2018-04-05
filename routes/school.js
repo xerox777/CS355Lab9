@@ -14,14 +14,11 @@ router.get('/update', function(req, res) {
 
 
 router.get('/edit', function(req, res) {
-    school_dal.getinfo(req.query.school_name, function(err, result){
-        if(err) {res.send(err); }
-        else {
-            res.render('school/SchoolUpdate', {
-                school: result[0][0],
-                school_result: result[1]
-            });
-        }
+    school_dal.getinfo(req.query.school_id, function(err, result){
+
+            res.render('school/schoolUpdate', {
+                school: result[0], school_result: result[1]});
+
     });
 });
 
@@ -41,7 +38,15 @@ router.get('/all', function(req, res, next) {
 });
 
 router.get('/add', function(req, res) {
-    res.render('school/school_add');
+    school_dal.getAll(function(err, result) {
+        if (err)
+        {
+            res.send(err);
+        }
+        else {
+            res.render('school/school_add', {school_result: result[0]});
+        }
+        });
 });
 
 router.get('/insert', function(req, res) {
