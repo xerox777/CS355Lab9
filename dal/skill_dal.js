@@ -14,13 +14,13 @@ exports.update = function(params, callback) {
 };
 
 
-exports.getinfo = function(skill_id, callback {
+exports.getinfo = function(skill_id, callback) {
     var query = 'CALL skill_getinfo(?)';
     var queryData = [skill_id];
     connection.query(query, queryData, function(err, result){
         callback(err, result);
     });
-});
+};
 
 
 exports.getAll = function(callback) {
