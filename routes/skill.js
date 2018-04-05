@@ -20,7 +20,7 @@ router.get('/update', function(req, res){
 router.get('/edit', function(req, res){
     skill_dal.getinfo(req.query.skill_id, function(err, result){
 
-            res.render('skill/skillUpdate',
+            res.render('skill/SkillUpdate',
                 {skill: result[0], skill_result: result[1]}); //skill: result[0][0], skill_result: result[1]
 
     });

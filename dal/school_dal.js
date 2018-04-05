@@ -64,7 +64,7 @@ exports.getAll = function(callback) {
  */
 exports.insert = function(params, callback) {
 
-    var query = 'INSERT INTO school (school_name, address_id) VALUES (?, ?)';
+    var query = 'INSERT INTO school (address_id, school_name) VALUES (?, ?)';
     var queryData = [params.email, params.school_name, params.address_id];
 
     connection.query(query, queryData, function(err, result) {

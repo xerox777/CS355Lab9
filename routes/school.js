@@ -16,7 +16,7 @@ router.get('/update', function(req, res) {
 router.get('/edit', function(req, res) {
     school_dal.getinfo(req.query.school_id, function(err, result){
 
-            res.render('school/schoolUpdate', {
+            res.render('school/SchoolUpdate', {
                 school: result[0], school_result: result[1]});
 
     });
@@ -45,8 +45,9 @@ router.get('/add', function(req, res) {
         }
         else {
             res.render('school/school_add', {school_result: result[0]});
+
         }
-        });
+    });
 });
 
 router.get('/insert', function(req, res) {
