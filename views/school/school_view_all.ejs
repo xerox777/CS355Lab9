@@ -17,14 +17,17 @@
         <td><%= school[i].school_id %></td>
         <td><%= school[i].school_name %></td>
         <td><%= school[i].address_id %></td>
-    </tr>
-    <% } %>
-    <tr>
+
+
     <td>
     <a href='/school/edit/?school_id=<%= school[i].school_id %>'>
         Edit
+     </td>
+     </tr>
+      <tr>
+    <% } %>
     </a>
-    </td>
+
     </tr>
 </table>
 </body>
