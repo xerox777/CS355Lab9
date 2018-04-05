@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var school_dal = require('../dal/school_dal');
+
 router.get('/update', function(req, res) {
     school_dal.update(req.query, function(err, result){
         if(err){
@@ -35,7 +37,7 @@ router.get('/all', function(req, res, next) {
             res.render('school/school_view_all', {school: result[0]});
         }
 
-    })
+    });
 });
 
 router.get('/add', function(req, res) {

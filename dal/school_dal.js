@@ -54,6 +54,7 @@ exports.getinfo = function(address_id, callback) {
 exports.getAll = function(callback) {
     //var query = 'SELECT * FROM account;';
     var query = 'CALL school_getall();';
+
     connection.query(query, function(err, result) {
         callback(err, result);
     });
