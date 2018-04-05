@@ -6,10 +6,10 @@
 <body>
 <h1>Add New Skill</h1>
 <form action="/skill/update" method="get">
-    Skill Name: <input id="skill_name"
-    name="skill_name"
-    type="text"
-    value="<%= skill.skill_name%>"
+        Skill Id: <input id="skill_id"
+        name="skill_id"
+        type="text"
+        value="<%= skill_result.skill_id%>"
     />
     <br />
             <% for(var i=0; skill_result.length > i; i++ ) {
@@ -19,15 +19,10 @@
                     checked = "checked";
                 }
             %>
-    Skill Description: <input name="description" type="text" />
-    <br />
-    <% for(var i=0; skill_res.length > i; i++) { %>
-        <input type="checkbox" name="skill_id" value="<%=
-        skill_res[i].skill_id %>"> <%= skill_res[i].skill_name %> + ','
-        <%= skill_res[i].description %>
+    <input type="checkbox" name="skill_id" <%= checked %> value="<%= skill_result[i].skill_id %>"> <%= address_result[i].street + ',' +
+         skill_result[i].skill_description %>
         <br />
         <% } %>
-        <br />
     <input type="submit" />
     <input type="hidden"
         id="skill_id"

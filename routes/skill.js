@@ -22,7 +22,7 @@ router.get('/edit', function(req, res){
         if(err) {res.send(err);}
         else {
             res.render('skill/SkillUpdate',
-                {skill: result[0][0], skill_result: result[1]});
+                {skill: result[0][0], skill_result: result[1]}); //skill: result[0][0], skill_result: result[1]
         }
     });
 });
@@ -43,7 +43,15 @@ router.get('/all', function(req, res, next) {
 });
 
 router.get('/add', function(req, res) {
-    res.render('skill/skill_add', {skill_result: res[0]});
+    skill_dal.getAll(function(err, result) {
+        if (err)
+        {
+            res.send(err);
+        }
+        else {
+            res.render('skill/skill_add', {skill_result: result[0]});
+        }
+    });
 });
 
 router.get('/insert', function(req, res) {
