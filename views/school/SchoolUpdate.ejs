@@ -4,7 +4,7 @@
     <title>School - ADD</title>
 </head>
 <body>
-<h1>Add New School</h1>
+<h1>Edit School</h1>
 <form action="/school/update" method="get">
     School Name: <input id="school_name"
     name="school_name"
@@ -19,21 +19,22 @@
                     checked = "checked";
                 }
             %>
-    School Id: <input name="school_id" type="text" />
-    <br />
-    <% } %>
-    <% for(var i=0; school_result.length > i; i++) { %>
-        <input type="checkbox" name="school_id" value="<%=
-        school_result[i].school_id %>"> <%= school_result[i].school_name %> + ','
-        <%= school_result[i].address_id %>
-        <br />
+
+
+    <input type="checkbox" name="school_id" <%= checked %> value="<%= school_result[i].school_id %>"> <%= school_result[i].school_name + ',' +
+    address_result[i].school_id %>
+    <br/>
+
+
         <% } %>
-        <br />
+
     <input type="submit" />
     <input type="hidden"
-        id="school_id"
-        name="school_id"
-        value="<%= school.school_id %>"
+           id="school_id"
+           name="school_id"
+           value="<%= school.school_id %>"
+    />
+
 </form>
 </body>
 </html>

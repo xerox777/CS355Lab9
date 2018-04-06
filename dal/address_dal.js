@@ -16,7 +16,7 @@ exports.getinfo = function(address_id, callback) {
 
 exports.update = function(params, callback) {
     var query = 'UPDATE address SET street = ? WHERE address_id = ?';
-    var queryData = [params.skill_name, params.skill_id];
+    var queryData = [params.street, params.address_id];
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });

@@ -4,12 +4,12 @@
     <title>Address - ADD</title>
 </head>
 <body>
-<h1>Add New Address</h1>
-<form action="/address/insert" method="get">
+<h1>Edit Address</h1>
+<form action="/address/update" method="get">
     Address Name: <input id="street"
                     name="street"
                     type="text"
-                    value="<%= address.street%>"
+                    value="<%= address_res.street%>"
     />
     <br />
     <br />
@@ -20,7 +20,7 @@
                 checked = "checked";
             }
         %>
-            <input type="checkbox" name="address_id" <%= checked %> value="<%= address_result[i].address_id %>"> <%= address_result[i].street + ',' +
+            <input type="checkbox" name="address_id" <%= checked %> value="<%= address_res[i].address_id %>"> <%= address_res[i].street + ',' +
          address_res[i].zip_code %>
         <br />
         <% } %>
@@ -28,7 +28,7 @@
     <input type="hidden"
             id="address_id"
             name="address_id"
-            value="<%= address.address_id %>"
+            value="<%= address_res.address_id %>"
     />
 </form>
 </body>

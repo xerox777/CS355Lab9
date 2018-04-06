@@ -16,6 +16,16 @@ router.get('/edit', function(req, res){
     });
 });
 
+router.get('/update', function(req, res) {
+    address_dal.update(req.query, function(err, result){
+        if(err){
+            res.send(err);
+        }
+        else {
+            res.redirect(302, '/address/all');
+        }
+    });
+});
 
 
 /* GET users listing. */
