@@ -7,11 +7,12 @@
 <h1>Edit School</h1>
 <form action="/school/update" method="get">
     School Name: <input id="school_name"
-    name="school_name"
-    type="text"
-    value="<%= school.school_name%>"
+                        name="school_name"
+                        type="text"
+                        value="<%= school_result.school_name%>"
     />
     <br />
+
             <% for(var i=0; school_result.length > i; i++ ) {
                 var checked ="";
 
@@ -21,8 +22,7 @@
             %>
 
 
-    <input type="checkbox" name="school_id" <%= checked %> value="<%= school_result[i].school_id %>"> <%= school_result[i].school_name + ',' +
-    address_result[i].school_id %>
+
     <br/>
 
 
@@ -32,9 +32,10 @@
     <input type="hidden"
            id="school_id"
            name="school_id"
-           value="<%= school.school_id %>"
+           value="<%= school_result.school_id %>"
     />
 
+</form>
 </form>
 </body>
 </html>

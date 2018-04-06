@@ -30,6 +30,7 @@ var accountUpdate = function(accountIdArray, email, first_name, last_name, callb
         }
     });
 };
+
 exports.update = function(params, callback){
     var query = 'UPDATE account SET email = ?, first_name = ?, last_name = ? WHERE account_id = ?';
     var queryData = [params.email, params.first_name, params.last_name, params.account_id];

@@ -6,8 +6,8 @@ var db = require('./db_connection.js');
 var connection = mysql.createConnection(db.config);
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE skill SET skill_name = ? WHERE skill_id = ?';
-    var queryData = [params.skill_name, params.skill_id];
+    var query = 'UPDATE skill SET skill_name = ?, description = ? WHERE skill_id = ?';
+    var queryData = [params.skill_name, params.description, params.skill_id];
     connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
