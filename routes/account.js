@@ -11,19 +11,19 @@ router.get('/update', function(req, res) {
         if(err){
             res.send(err);
         } else {
-            res.redirect(302, '/company/all');
+            res.redirect(302, '/account/all');
         }
     });
 });
 
 
 router.get('/edit', function(req, res) {
-    account_dal.getinfo(req.query.email, function(err, result){
+    account_dal.getinfo(req.query.account_id, function(err, result){
         if(err) {res.send(err); }
         else {
             res.render('account/AccountUpdate', {
                 account: result[0][0],
-                account_result: result[1]
+                account_result: result[0]
             });
         }
     });

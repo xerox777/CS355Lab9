@@ -34,9 +34,8 @@ exports.update = function(params, callback){
     var query = 'UPDATE account SET email = ? WHERE account_id = ?';
     var queryData = [params.email, params.account_id];
     connection.query(query, queryData, function(err, result) {
-        accountUpdate(params.email, params.account_id, function(err, result) {
-            callback(err, result);
-        });
+           callback(err, result);
+
     });
 };
 
