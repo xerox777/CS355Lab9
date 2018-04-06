@@ -5,14 +5,8 @@
 </head>
 <body>
 <h1>Edit Address</h1>
-<form action="/address/update" method="get">
-    Address Name: <input id="street"
-                    name="street"
-                    type="text"
-                    value="<%= address_res.street%>"
-    />
-    <br />
-    <br />
+
+
         <% for(var i=0; address_res.length > i; i++ ) {
             var checked ="";
 
@@ -20,8 +14,15 @@
                 checked = "checked";
             }
         %>
-            <input type="checkbox" name="address_id" <%= checked %> value="<%= address_res[i].address_id %>"> <%= address_res[i].street + ',' +
-         address_res[i].zip_code %>
+<form action="/address/update" method="get">
+    Address Name: <input
+            id="street"
+            name="street"
+            type="text"
+            value="<%= address_res[i].street%>"
+    />
+    <br />
+    <br />
         <br />
         <% } %>
     <input type="submit" />

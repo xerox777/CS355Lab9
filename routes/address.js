@@ -10,7 +10,7 @@ router.get('/edit', function(req, res){
         if(err){res.send(err);}
         else {
             res.render('address/AddressUpdate',
-                {address: result[0][0], address_res: result[1]});
+                {address: result[0][0], address_res: result[0]});
         }
 
     });
