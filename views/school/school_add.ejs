@@ -7,11 +7,11 @@
 <h1>Add New School</h1>
 <form action="/school/insert" method="get">
     School Name: <input name="school_name" type="text" />
-    Address Id: <input name="address_id" type="text" />
+     <input name="address_id" type="hidden" value="<%= school_result.address_id%>" />
     <br />
     <% for(var i=0; school_result.length > i; i++) { %>
-        <input type="checkbox" name="school_id" value="<%=
-        school_result[i].school_id %>"> <%= school_result[i].school_name %> --
+        <input type="checkbox" name="address_id" value="<%=
+        school_result[i].address_id %>">
         <%= school_result[i].address_id %>
         <br />
         <% } %>
