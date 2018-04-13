@@ -18,7 +18,7 @@ router.get('/update', function(req, res){
 
 
 router.get('/edit', function(req, res){
-    skill_dal.getAll(req.query.skill_id, function(err, result){
+    skill_dal.getinfo(req.query.skill_id, function(err, result){
 
             res.render('skill/SkillUpdate',
                 {skill: result[0][0], skill_result: result[0]}); //skill: result[0][0], skill_result: result[1]
@@ -42,15 +42,8 @@ router.get('/all', function(req, res, next) {
 });
 
 router.get('/add', function(req, res) {
-    skill_dal.getAll(function(err, result) {
-        if (err)
-        {
-            res.send(err);
-        }
-        else {
-            res.render('skill/skill_add', {skill_result: result[0]});
-        }
-    });
+    res.render('skill/skill_add');
+
 });
 
 router.get('/insert', function(req, res) {

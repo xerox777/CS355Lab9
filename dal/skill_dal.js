@@ -38,26 +38,9 @@ exports.insert = function(params, callback) {
     var query = 'INSERT INTO skill (skill_name, description) VALUES (?, ?)';
     var queryData = [params.skill_name, params.description];
 
-    connection.query(query, queryData, function(err, result) {
-        if(err || params.skill_name === undefined) {
-            console.log(err);
+        connection.query(query, queryData, function(err, result) {
             callback(err, result);
-        } else {
-            var skill_id = result.insertId;
-            var query = 'INSERT INTO skill (skill_id, skill_name, description) VALUES ?';
-            var skillData = [];
-            if (params.skill_id.constructor === Array) {
-                for (var i =0; i< params.skill_id.length; i++) {
-                    skillData.push([skill_id, params.skill_id[i]]);
-                }
-            } else {
-                skillData.push([skill_id, params.skill_id]);
-            }
+        });
 
-            connection.query(query, [skillData], function(err, result) {
-                callback(err, result);
-            });
-        }
 
-    });
 };
