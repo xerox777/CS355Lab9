@@ -76,7 +76,7 @@ exports.insert = function(params, callback) {
         }
         else {
             var company_id = result.insertId;
-            var query = 'INSERT INTO company_address (company_id, address_id) VALUES ?';
+            var query = 'INSERT INTO company_address (company_id, address_id) VALUES (?)';
             var companyAddressData = [];
 
             if (params.address_id.constructor === Array) {
