@@ -9,12 +9,23 @@
     School Name: <input name="school_name" type="text" />
 
     <br />
-    <% for(var i=0; school_result.length > i; i++) { %>
-        <input type="checkbox" name="address_id" value="<%=
-        school_result[i].address_id %>">
-        <%= school_result[i].address_id %>
+    <% for(var i=0; i < school_result.length; i++) { %>
+
+        <input type="checkbox" name="street" value="<%=
+        school_result[i].street %>">
+
+        <%= school_result[i].street %>  (id) = <%= school_result[i].address_id %>
         <br />
-        <% } %>
+    <% } %>
+    Address:
+        <select name="address_id">
+            <option value="<%= school_result[0].address_id %>"> <%= school_result[0].street %></option>
+            <option value="<%= school_result[1].address_id %>"> <%= school_result[1].street %></option>
+            <option value="<%= school_result[2].address_id %>"> <%= school_result[2].street %></option>
+            <option value="<%= school_result[3].address_id %>"> <%= school_result[3].street %></option>
+            <option value="<%= school_result[4].address_id %>"> <%= school_result[4].street %></option>
+        </select>
+
         <br />
     <input type="submit" />
 
