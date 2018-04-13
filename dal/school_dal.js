@@ -42,8 +42,9 @@ exports.update = function(params, callback){
 
 
 exports.getinfo = function(school_id, callback) {
-    var query = 'CALL school_info()';
-    connection.query(query, function(err, result) {
+    var query = 'CALL school_info(?)';
+    var queryData = [school_id];
+    connection.query(query, queryData, function(err, result) {
         callback(err, result);
     });
 };
